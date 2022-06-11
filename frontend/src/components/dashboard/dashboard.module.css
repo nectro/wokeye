@@ -83,7 +83,7 @@
     align-items: flex-start;
     font-family: 'quicksand';
 }
-.memberDetails h4{
+.memberDetails h5{
     margin: 0px;
     line-height: 20px;
 }
@@ -114,4 +114,66 @@
     align-items: center;
     font-family: 'quicksand';
     /* background-color: blue; */
+}
+.main{
+    padding: 0px 20px;
+}
+.header{
+    padding-top: 30px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.pageSelector{
+    width:240px;
+    height: 40px;
+    background-color: #FFEDDA;
+    border-radius: 40px;
+    border: 2px solid #FFE3AC;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+.pageSelector select{
+    margin: 1px 5px;
+    font-size: 17px;
+    outline: none;
+    background-color: transparent;
+    border:none;
+}
+
+.accDetails{
+    height:40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap:10px;
+}
+.miniAvatar{
+    height: 33px;
+    width: 33px;
+    border-radius: 100%;
+    background-color: rgba(0, 0, 0, 0.562);
+}
+.invite{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-width: 130px;
+    padding: 0px 15px;
+    background-color: #80ED99;
+    border-radius: 40px;
+}
+.account{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap:5px;
+    height: 100%;
+    min-width: 130px;
+    padding: 0px 5px;
+    padding-right: 20px;
+    background-color: #FFB830;
+    border-radius: 40px;
 }

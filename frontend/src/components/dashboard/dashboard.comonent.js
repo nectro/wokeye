@@ -32,7 +32,7 @@ function DashboardComponent() {
                                     </div>
                                 </div>
                                 <div className={styles.memberDetails}>
-                                    <h4>Samaresh Samanta</h4>
+                                    <h5>Samaresh Samanta</h5>
                                     <div>
                                         <p>Skills:</p>
                                         <p className={styles.box}>Html</p>
@@ -53,7 +53,7 @@ function DashboardComponent() {
                                     </div>
                                 </div>
                                 <div className={styles.memberDetails}>
-                                    <h4>Samaresh Samanta</h4>
+                                    <h5>Samaresh Samanta</h5>
                                     <div>
                                         <p>Skills:</p>
                                         <p className={styles.box}>Html</p>
@@ -74,7 +74,7 @@ function DashboardComponent() {
                                     </div>
                                 </div>
                                 <div className={styles.memberDetails}>
-                                    <h4>Samaresh Samanta</h4>
+                                    <h5>Samaresh Samanta</h5>
                                     <div>
                                         <p>Skills:</p>
                                         <p className={styles.box}>Html</p>
@@ -90,8 +90,27 @@ function DashboardComponent() {
                     </div>
                 </div>
             </div>
-            <div>
-                
+            <div className={styles.main}>
+                <div className={styles.header}>
+                    <div className={styles.pageSelector}>
+                        <div className={styles.signalHolder}>
+                            <div style={{borderRadius:"100%",height:10,width:10,backgroundColor:"green"}}></div>
+                        </div>
+                        <select>
+                            <option>Dashboard</option>
+                            <option>Documents</option>\
+                        </select>
+                    </div>
+                    <div className={styles.accDetails}>
+                        <div className={styles.invite}>
+                            Invite
+                        </div>
+                        <div className={styles.account}>
+                            <div className={styles.miniAvatar}></div>
+                            Samaresh Sama..
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )
