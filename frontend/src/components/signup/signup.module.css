@@ -14,9 +14,9 @@
     background-color: #FFE3AC;
     backdrop-filter: blur(10px);
     width:800px;
-    min-height: 400px;
+    min-height: 450px;
+    padding: 20px 0px;
     border-radius: 30px;
-    padding: 10px 0px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -57,7 +57,7 @@
     border-radius: 10px;
     background-color: #fff;
     font-size: 20px;
-    transition-duration: 0.06s;
+    transition-duration: 0.02s;
 }
 .button:hover{
     /* background-color: rgba(255, 255, 255, 0.678); */
