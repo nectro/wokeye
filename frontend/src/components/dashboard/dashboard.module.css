@@ -1,0 +1,117 @@
+.majorContainer{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+.sidebar{
+    background-color: #3DB2FF;
+    padding-top: 30px;
+}
+.Ctn{
+    width:100%;
+}
+.Ctn img{
+    width:46%;
+    margin-bottom: 30px;
+}
+.Ctn h2{
+    margin: 10px auto;
+    color:white;
+    font-family: 'quicksand';
+}
+.signalHolder{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.projectSelector{
+    width:86%;
+    height: 40px;
+    margin: 10px auto;
+    background-color: rgba(255, 255, 255, 0.226);
+    border-radius: 8px;
+    border: 2px solid white;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+.projectSelector select{
+    margin: 1px 5px;
+    font-size: 17px;
+    outline: none;
+    background-color: transparent;
+    border:none;
+}
+.membersContainer{
+    width:86%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap:10px;
+    margin: 8px auto;
+}
+.memberCard{
+    width:100%;
+    height: 90px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.5);
+    overflow: hidden;
+}
+.details{
+    height:74%;
+    width: 100%;
+    border-bottom: 2px solid #3DB2FF;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+
+}
+.imgCtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.avatar{
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    background-color: rgba(0, 0, 0, 0.562);
+}
+.memberDetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    font-family: 'quicksand';
+}
+.memberDetails h4{
+    margin: 0px;
+    line-height: 20px;
+}
+.memberDetails p{
+    font-size: 12px;
+    line-height: 10px;
+    font-weight: 600;
+    margin: 0px;
+    margin-right: 4px;
+}
+.memberDetails div{
+    max-width: 100%;
+    overflow-x: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.box{
+    background-color: white;
+    padding: 3px 5px;
+    border-radius: 6px;
+}
+.status{
+    height:26%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'quicksand';
+    /* background-color: blue; */
+}

@@ -1,9 +1,10 @@
 import React from 'react'
+import DashboardComponent from '../components/dashboard/dashboard.comonent'
 
 function HomePage() {
     return (
         <div>
-            home
+            <DashboardComponent />
         </div>
     )
 }
