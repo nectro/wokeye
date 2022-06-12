@@ -1,0 +1,86 @@
+.majorContainer{
+    min-height:100vh;
+    background-color: #3DB2FF;
+    background-image: url('../../assets/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: 100px;
+    padding: 0px 40px;
+}
+.header{
+    padding-top: 30px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.accDetails{
+    height:40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap:10px;
+}
+.miniAvatar{
+    height: 33px;
+    width: 33px;
+    border-radius: 100%;
+    background-color: rgba(0, 0, 0, 0.562);
+}
+.invite{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-width: 130px;
+    padding: 0px 15px;
+    background-color: #80ED99;
+    border-radius: 40px;
+}
+.account{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap:5px;
+    height: 100%;
+    min-width: 130px;
+    padding: 0px 5px;
+    padding-right: 20px;
+    background-color: #FFB830;
+    border-radius: 40px;
+}
+
+.projectHolder{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap:20px;
+    width:100%;
+    max-height: calc(100vh - 90px);
+    overflow-y: auto;
+    padding: 100px;
+
+}
+.card{
+    height:250px;
+    width:260px;
+    background-color: rgb(255, 198, 93);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:6%;
+    font-family: 'quicksand';
+    transition-duration: 0.1s;
+    color:black;
+}
+.card:hover{
+    transform:scale(1.05);
+    cursor: pointer;
+}

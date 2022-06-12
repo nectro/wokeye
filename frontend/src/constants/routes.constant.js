@@ -1,15 +1,16 @@
-import Home from "../pages/home.page"
+import Projects from "../pages/projects.page"
+import ProjectsViewPage from "../pages/projectsView.page"
 import Signup from "../pages/signup.page"
 import Login from "../pages/login.page"
 
 export const PRIVATE_ROUTES = [
     {
         path:"/projects/:projId",
-        component:<Home />,
+        component:<Projects />,
     },
     {
         path:"/projects",
-        component:<Home />,
+        component:<ProjectsViewPage />,
     }
 ]
 export const PUBLIC_ROUTES = [

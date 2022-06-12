@@ -1,7 +1,7 @@
 import React from 'react'
 import DashboardComponent from '../components/dashboard/dashboard.comonent'
 
-function HomePage() {
+function ProjectsPage() {
     return (
         <div>
             <DashboardComponent />
@@ -9,4 +9,4 @@ function HomePage() {
     )
 }
 
-export default HomePage
+export default ProjectsPage
