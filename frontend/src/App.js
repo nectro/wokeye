@@ -14,9 +14,9 @@ function App() {
   const { setUser } = bindActionCreators(actionCreators, dispatch);
   const state = useSelector(state=>state)
 
-  useEffect(()=>{
-    setUser({name:"sanm",gender:"male",make:"bengali"})
-  },[])
+  // useEffect(()=>{
+  //   setUser({name:"sanm",gender:"male",make:"bengali"})
+  // },[])
 
   useEffect(()=>{
     console.log(state)

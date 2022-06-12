@@ -26,7 +26,7 @@ router.route('/signup').post(async (req,res)=>{
                 projects:[],
             })
             newUser.save()
-                .then(()=>{res.json({status:1,msg:"user added"})})
+                .then((user)=>{res.json({status:1,msg:"Welcome to Wokeye!:)",data:user})})
                 .catch((err)=>{res.status(400).json({status:0,msg:err})})
         }else{
             res.status(500).json({status:0,msg:"email already exists!"})
@@ -48,7 +48,7 @@ router.route('/login').post(async (req,res)=>{
                 const hashedPassword = userProfile.password
                 const isPassCorrect = bcrypt.hashSync(password, hashedPassword)
                 if(isPassCorrect){
-                    res.status(200).json({status:1,data:userProfile})
+                    res.status(200).json({status:1,msg:"Welcome back!!:)",data:userProfile})
                 }else{
                     res.status(500).json({status:0,msg:"wrong username or password"})
                 }
