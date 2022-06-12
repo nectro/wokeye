@@ -43,16 +43,14 @@
 }
 .membersContainer{
     width:86%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap:10px;
+    max-height:calc(100vh - 208.17px);
+    overflow: auto;
     margin: 8px auto;
 }
 .memberCard{
     width:100%;
     height: 90px;
+    margin: 10px 0px;
     border-radius: 8px;
     background-color: rgba(255, 255, 255, 0.5);
     overflow: hidden;
@@ -176,4 +174,92 @@
     padding-right: 20px;
     background-color: #FFB830;
     border-radius: 40px;
+}
+.taskHolder{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap:20px;
+    width:100%;
+    max-height: calc(100vh - 90px);
+    overflow-y: auto;
+    padding: 22px 0px;
+
+}
+.card{
+    height:280px;
+    width:260px;
+    background-color: rgba(255, 182, 46, 0.45);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap:3%;
+}
+.card h5{
+    font-family: 'quicksand';
+}
+.headerCtn{
+    height:12%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 6px;
+}
+.headerCtn h3{
+    font-family: 'quicksand';
+    font-weight: 700;
+}
+.headerCtn svg{
+    font-size: 17px;
+    color: rgba(0, 0, 0, 0.452);
+}
+.headerCtn svg:hover{
+    cursor: pointer;
+    color:black;
+}
+.detailsCtn{
+    max-height:20%;
+    width: 100%;
+}
+.detailsCtn p{
+    font-size: 12px;
+    text-align: left;
+}
+.actionCtn{
+    height:11%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:14px
+}
+.actionCtn svg{
+    font-size: 22px;
+    color: rgba(0, 0, 0, 0.781);
+}
+.membersCtn{
+    height:50%;
+    width: 100%;
+    overflow: auto;
+}
+.membersCtn div{
+    height: 30px;
+    width:100%;
+    background-color: rgba(255, 255, 255, 0.719);
+    margin: 8px 0px;
+    padding: 0px 6px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.membersCtn div p{
+    font-size: 15px;
 }
