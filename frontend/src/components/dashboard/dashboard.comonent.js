@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from './dashboard.module.css'
 import Logo from "../../assets/logo.svg"
 import { AiFillEdit } from 'react-icons/ai'
 import { MdMail } from 'react-icons/md'
 import { SiGooglemeet } from 'react-icons/si'
 import { AiFillCheckSquare } from 'react-icons/ai'
+import { useParams } from "react-router-dom"
 
 function DashboardComponent() {
+    let params = useParams()
+
+    useEffect(()=>console.log(params.projId),[])
+    
     return (
         <div className={styles.majorContainer}>
             <div className={styles.sidebar}>

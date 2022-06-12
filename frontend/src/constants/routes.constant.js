@@ -4,7 +4,11 @@ import Login from "../pages/login.page"
 
 export const PRIVATE_ROUTES = [
     {
-        path:"/",
+        path:"/projects/:projId",
+        component:<Home />,
+    },
+    {
+        path:"/projects",
         component:<Home />,
     }
 ]
