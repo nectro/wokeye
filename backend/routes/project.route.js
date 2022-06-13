@@ -1,6 +1,30 @@
 const router = require('express').Router()
 const user = require('../models/user.model')
 const project = require('../models/project.model')
+const { route } = require('./user.route')
+
+router.route('/fetchAll/').post(async (req,res)=>{
+    const { projIds }= req.body
+    let projs = []
+    for(var i in projIds){
+        await project.findOne({"_id":projIds[i]})
+        .then(proj=>{
+            projs.push(proj)
+        })
+    }
+    res.json({status:1,msg:"fetched",data:projs})
+})
+
+router.route('/fetch/:id').get((req,res)=>{
+    const projId= req.params.id;
+    project.findOne({"_id":projId})
+        .then(proj=>{
+            res.json({status:1,msg:"fetched",data:proj})
+        })
+        .catch((err)=>{
+            res.json({status:0,msg:"couldn't find",data:err})
+        })
+})
 
 router.route('/createProject/:id').post(async (req,res)=>{
     const id = req.params.id
@@ -23,7 +47,7 @@ router.route('/createProject/:id').post(async (req,res)=>{
                 var projId = await proj._id.valueOf()
                 ownerProjects.push(projId)
                 user.findOneAndUpdate({"_id":id},{projects:ownerProjects} )
-                    .then(()=>res.json({status:1,msg:"project created"}))
+                    .then(()=>res.json({status:1,msg:"project created",data:proj}))
                     .catch(()=>res.status(400).json({status:0,msg:"profile didn't updated"}))
             })
             .catch((err)=>{res.status(400).json({status:0,msg:err})})
