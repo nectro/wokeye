@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styles from './projectView.module.css'
 import Logo from '../../assets/logo.svg'
+import Loader from '../../assets/loader.gif'
 import ModalComponent from '../modal/modal.component'
 
 import { Link } from 'react-router-dom'
@@ -19,6 +20,7 @@ function ProjectsViewComponent() {
     const { setProjectList } = bindActionCreators(actionCreators, dispatch)
     
     const [modal, setModal] = useState(false)
+    const [loader, setLoader] = useState(false)
     const [projName, setProjName] = useState(null)
     const [projects, setProjects] = useState([])
     const userId = useSelector(state=>state.user.data._id)
@@ -29,10 +31,12 @@ function ProjectsViewComponent() {
     // },[projects])
 
     useEffect(()=>{
+        setLoader(true)
         axios.post(`${API_URI}project/fetchall/`, {projIds:userProjs})
             .then(res=>{
                 setProjects(res.data.data)
                 setProjectList(res.data.data)
+                setLoader(false)
             })
     },[userProjs]) 
 
@@ -55,6 +59,12 @@ function ProjectsViewComponent() {
 
     return (
         <div className={styles.majorContainer}>
+            {
+                loader &&
+                <ModalComponent>
+                    <img src={Loader} className={styles.loader} />
+                </ModalComponent>
+            }
             {
                 modal &&
                 <ModalComponent>

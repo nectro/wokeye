@@ -2,6 +2,18 @@ const router = require('express').Router()
 const project = require('../models/project.model')
 const task = require('../models/task.model')
 
+router.route('/fetchAll/').post(async (req,res)=>{
+    const { taskIds }= req.body
+    let tasks = []
+    for(var i in taskIds){
+        await task.findOne({"_id":taskIds[i]})
+        .then(task=>{
+            tasks.push(task)
+        })
+    }
+    res.json({status:1,msg:"fetched",data:tasks})
+})
+
 router.route('/createTask/:id').post(async (req,res)=>{
     const projId = req.params.id
     const {
@@ -9,7 +21,7 @@ router.route('/createTask/:id').post(async (req,res)=>{
         userId
     } = req.body
 
-    const mainProject = await user.findOne({"_id":id})
+    const mainProject = await project.findOne({"_id":projId})
 
     if(projId && taskName){
         const newTask = new task({

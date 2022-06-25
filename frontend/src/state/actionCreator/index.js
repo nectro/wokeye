@@ -25,3 +25,12 @@ export const setProjectList = (projects) => {
         })
     }
 }
+
+export const setTaskList = (tasks) => {
+    return dispatch => {
+        dispatch({
+            type:"set_tasks_list",
+            payload:tasks
+        })
+    }
+}

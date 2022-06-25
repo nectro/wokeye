@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './dashboard.module.css'
 import Logo from "../../assets/logo.svg"
+import Loader from "../../assets/loader.gif"
 import { useParams, Routes, Route, useNavigate } from "react-router-dom"
 
 import axios from 'axios'
@@ -11,20 +12,38 @@ import TaskViewComponent from '../taskView/taskView.component'
 import { useDispatch, useSelector } from "react-redux"
 import { bindActionCreators } from 'redux'
 import { actionCreators } from '../../state'
+import ModalComponent from '../modal/modal.component'
 
 function DashboardComponent() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const params = useParams()
     const projectList = useSelector(state=>state.projectList)
+    const userName = useSelector(state=>state.user.data.name)
 
-    const { setProject } = bindActionCreators(actionCreators, dispatch)
+    const { setProject, setTaskList } = bindActionCreators(actionCreators, dispatch)
+    const [loader, setLoader] = useState(false)
+
+    const fetchProjectData = async ()=>{
+        setLoader(true)
+        await axios.get(`${API_URI}project/fetch/${params.projId}`)
+            .then(res=>
+                {
+                    setProject(res.data.data)
+                    const tasksReq = {
+                        taskIds:res.data.data.tasks,
+                    }
+                    axios.post(`${API_URI}task/fetchAll/`, tasksReq)
+                        .then(response=>{
+                            setTaskList(response.data.data)
+                            setLoader(false)}
+                        )
+                }
+            )
+    }
 
     useEffect(()=>{
-        axios.get(`${API_URI}project/fetch/${params.projId}`)
-            .then(res=>
-                setProject(res.data.data)
-            )
+        fetchProjectData()
     },[params.projId])
 
     const navigateProjects = (index) => {
@@ -34,6 +53,12 @@ function DashboardComponent() {
     
     return (
         <div className={styles.majorContainer}>
+            {
+                loader &&
+                <ModalComponent>
+                    <img src={Loader} className={styles.loader} />
+                </ModalComponent>
+            }
             <div className={styles.sidebar}>
                 <div className={styles.Ctn}>
                     <img src={Logo} />
@@ -137,12 +162,12 @@ function DashboardComponent() {
                         </div>
                         <div className={styles.account}>
                             <div className={styles.miniAvatar}></div>
-                            Samaresh Sama..
+                            Hello! {userName}
                         </div>
                     </div>
                 </div>
                 <Routes>
-                    <Route exact path="/" element={<TaskViewComponent />} />
+                    <Route exact path="/" element={<TaskViewComponent fetchProjectData={fetchProjectData}/>} />
                     <Route path="/document" element={<TaskViewComponent />} />
                 </Routes>
             </div>

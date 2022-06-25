@@ -167,3 +167,7 @@
     transform: scale(1.06);
     cursor: pointer;
 }
+
+.loader{
+    height:100px;
+}

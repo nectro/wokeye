@@ -5,7 +5,7 @@
     width: 100vw;
     top:0px;
     left:0px;
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(255, 255, 255, 0.562);
     backdrop-filter:blur(10px);
     display: flex;
     justify-content: center;

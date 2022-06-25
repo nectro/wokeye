@@ -8,6 +8,7 @@ const todoSchema = new schema({
 
 const taskSchema = new schema({
     status:{type:Number,required:true},
+    name:{type:String,required:false},
     details:{type:String,required:false},
     members:{type:[String],required:false},
     lead:{type:[String],required:true},
