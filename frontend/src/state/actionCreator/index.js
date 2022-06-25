@@ -15,3 +15,13 @@ export const setProject = (projects) => {
         })
     }
 }
+
+
+export const setProjectList = (projects) => {
+    return dispatch => {
+        dispatch({
+            type:"set_projects_list",
+            payload:projects
+        })
+    }
+}

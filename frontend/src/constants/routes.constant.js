@@ -5,7 +5,7 @@ import Login from "../pages/login.page"
 
 export const PRIVATE_ROUTES = [
     {
-        path:"/projects/:projId",
+        path:"/projects/:projId/*",
         component:<Projects />,
     },
     {

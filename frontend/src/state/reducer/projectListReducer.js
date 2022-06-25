@@ -1,8 +1,8 @@
-var initState = {}
+var initState = []
 
-const projectReducer = (state = initState, action) => {
+const projectListReducer = (state = initState, action) => {
     switch(action.type){
-        case 'set_projects':
+        case 'set_projects_list':
             const Projects = action.payload 
             return Projects
         default:
@@ -10,4 +10,4 @@ const projectReducer = (state = initState, action) => {
     }
 }
 
-export default projectReducer
+export default projectListReducer

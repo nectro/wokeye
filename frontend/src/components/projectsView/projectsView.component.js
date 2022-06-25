@@ -9,7 +9,15 @@ import { useSelector } from 'react-redux'
 import axios from 'axios'
 import { API_URI } from '../../constants/config.constant'
 
+import { useDispatch } from "react-redux";
+import { bindActionCreators } from 'redux'
+import { actionCreators } from '../../state'
+
 function ProjectsViewComponent() {
+    const dispatch = useDispatch()
+
+    const { setProjectList } = bindActionCreators(actionCreators, dispatch)
+    
     const [modal, setModal] = useState(false)
     const [projName, setProjName] = useState(null)
     const [projects, setProjects] = useState([])
@@ -24,6 +32,7 @@ function ProjectsViewComponent() {
         axios.post(`${API_URI}project/fetchall/`, {projIds:userProjs})
             .then(res=>{
                 setProjects(res.data.data)
+                setProjectList(res.data.data)
             })
     },[userProjs]) 
 
