@@ -1,7 +1,6 @@
 const router = require('express').Router()
 const user = require('../models/user.model')
 const project = require('../models/project.model')
-const { route } = require('./user.route')
 
 router.route('/fetchAll/').post(async (req,res)=>{
     const { projIds }= req.body
