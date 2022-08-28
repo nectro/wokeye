@@ -22,8 +22,10 @@ function ProjectsViewComponent() {
     const [modal, setModal] = useState(false)
     const [loader, setLoader] = useState(false)
     const [projName, setProjName] = useState(null)
+    const [members, setMembers] = useState([])
     const [projects, setProjects] = useState([])
     const userId = useSelector(state=>state.user.data._id)
+    const userName = useSelector(state=>state.user.data.name)
     const userProjs = useSelector(state=>state.user.data.projects)
 
     // useEffect(()=>{
@@ -32,13 +34,17 @@ function ProjectsViewComponent() {
 
     useEffect(()=>{
         setLoader(true)
-        axios.post(`${API_URI}project/fetchall/`, {projIds:userProjs})
+        fetchProject(userProjs)
+    },[userProjs])
+    
+    const fetchProject = (Ids)=>{
+        axios.post(`${API_URI}project/fetchall/`, {projIds:Ids})
             .then(res=>{
                 setProjects(res.data.data)
                 setProjectList(res.data.data)
                 setLoader(false)
             })
-    },[userProjs]) 
+    }
 
     const createProject = ()=>{
         // console.log(`${projName}`)
@@ -50,7 +56,7 @@ function ProjectsViewComponent() {
         axios.post(`${API_URI}project/createProject/${userId}`, data)
             .then((res)=>{
                 alert(res.data.msg)
-                setProjects([...projects, res.data.data])
+                fetchProject(userProjs)
             })
 
         setModal(false)
@@ -72,6 +78,16 @@ function ProjectsViewComponent() {
                         <h2>Create Project</h2>
                         <div className={styles.inpCtn}>
                             <input type="text" placeholder="Project Name" className={styles.input} onChange={(e)=>{setProjName(e.target.value)}} />
+                            <p>Add Members :</p>
+                            <div className={styles.box}>
+                                <div className={styles.nameHolder}>
+                                    <input type="text" placeholder="Member Email" className={styles.innerInput}/>
+                                    <button><b>+</b></button>
+                                </div>
+                                <div className={`${styles.nameHolder} ${styles.flexProps}`}>
+
+                                </div>
+                            </div>
                         </div>
                         <button className={styles.button} onClick={()=>{createProject()}}>Create</button>
                     </div>
@@ -85,7 +101,7 @@ function ProjectsViewComponent() {
                     </div>
                     <div className={styles.account}>
                         <div className={styles.miniAvatar}></div>
-                        Welcome Samaresh Samanta
+                        Welcome {userName}
                     </div>
                 </div>
             </div>
