@@ -201,16 +201,32 @@
 }
 .nameHolder{
     width:90%;
-    border-bottom: 1px dashed #FFB830;
 }
 .nameHolder button{
     padding: 1px 5px;
     font-size: 17px;
 }
-.flexProps{
+.nameHolder p{
+    font-size: 13px;
+    margin: 0px;
+    color: rgb(68, 68, 68);
+}
+.nameHolder svg{
+    color: #FF6176;
+}
+.flexPropsC{
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap:5px;
     flex-wrap: wrap;
+}
+.flexPropsH{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width:100%;
+    padding-right: 15px;
+    padding-left: 15px;
 }

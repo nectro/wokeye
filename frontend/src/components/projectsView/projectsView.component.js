@@ -5,7 +5,7 @@ import Loader from '../../assets/loader.gif'
 import ModalComponent from '../modal/modal.component'
 
 import { Link } from 'react-router-dom'
-import { AiFillPlusCircle } from 'react-icons/ai'
+import { AiFillPlusCircle,AiFillCloseCircle } from 'react-icons/ai'
 import { useSelector } from 'react-redux'
 import axios from 'axios'
 import { API_URI } from '../../constants/config.constant'
@@ -23,6 +23,7 @@ function ProjectsViewComponent() {
     const [loader, setLoader] = useState(false)
     const [projName, setProjName] = useState(null)
     const [members, setMembers] = useState([])
+    const [memberInp, setMemberInp] = useState("")
     const [projects, setProjects] = useState([])
     const userId = useSelector(state=>state.user.data._id)
     const userName = useSelector(state=>state.user.data.name)
@@ -80,12 +81,22 @@ function ProjectsViewComponent() {
                             <input type="text" placeholder="Project Name" className={styles.input} onChange={(e)=>{setProjName(e.target.value)}} />
                             <p>Add Members :</p>
                             <div className={styles.box}>
-                                <div className={styles.nameHolder}>
-                                    <input type="text" placeholder="Member Email" className={styles.innerInput}/>
-                                    <button><b>+</b></button>
+                                <div className={styles.nameHolder} style={{'borderBottom':'1px dashed #FFB830'}}>
+                                    <input type="text" placeholder="Member Email" className={styles.innerInput} onChange={(e)=>setMemberInp(e.target.value)}/>
+                                    <button onClick={()=>{setMembers([...members, memberInp]);setMemberInp("")}}><b>+</b></button>
                                 </div>
-                                <div className={`${styles.nameHolder} ${styles.flexProps}`}>
-
+                                <div className={`${styles.nameHolder} ${styles.flexPropsC}`}>
+                                    {
+                                        members &&
+                                        members.map(m=>
+                                            <div className={styles.flexPropsH}>
+                                                <p>
+                                                    {m}
+                                                </p>
+                                                <AiFillCloseCircle />
+                                            </div>
+                                        )
+                                    }
                                 </div>
                             </div>
                         </div>
