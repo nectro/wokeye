@@ -63,6 +63,16 @@ function ProjectsViewComponent() {
         setModal(false)
     }
 
+    const deleteMember = (member)=>{
+        let temp = []
+        members.forEach(m => {
+            if(m != member){
+                temp.push(m)
+            }
+        })
+        setMembers(temp)
+    }
+
 
     return (
         <div className={styles.majorContainer}>
@@ -82,7 +92,7 @@ function ProjectsViewComponent() {
                             <p>Add Members :</p>
                             <div className={styles.box}>
                                 <div className={styles.nameHolder} style={{'borderBottom':'1px dashed #FFB830'}}>
-                                    <input type="text" placeholder="Member Email" className={styles.innerInput} onChange={(e)=>setMemberInp(e.target.value)}/>
+                                    <input type="text" placeholder="Member Email" className={styles.innerInput} value={memberInp} onChange={(e)=>setMemberInp(e.target.value)}/>
                                     <button onClick={()=>{setMembers([...members, memberInp]);setMemberInp("")}}><b>+</b></button>
                                 </div>
                                 <div className={`${styles.nameHolder} ${styles.flexPropsC}`}>
@@ -93,7 +103,7 @@ function ProjectsViewComponent() {
                                                 <p>
                                                     {m}
                                                 </p>
-                                                <AiFillCloseCircle />
+                                                <AiFillCloseCircle onClick={()=>deleteMember(m)}/>
                                             </div>
                                         )
                                     }
