@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const user = require('../models/user.model')
 const project = require('../models/project.model')
+const nodemailer = require('nodemailer')
 
 router.route('/fetchAll/').post(async (req,res)=>{
     const { projIds }= req.body
@@ -28,8 +29,27 @@ router.route('/fetch/:id').get((req,res)=>{
 router.route('/createProject/:id').post(async (req,res)=>{
     const id = req.params.id
     const {
-        projectName
+        projectName,
+        members
     } = req.body
+
+    const userInvited = members[0]
+    console.log(userInvited)
+
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'nectro009@gmail.com',
+          pass: 'gvmlvfxdgnynbjju'
+        }
+    });
+
+    var mailOptions = {
+    from: 'nectro009@gmail.com',
+    to: userInvited,
+    subject: 'Sending Email using Node.js',
+    text: 'That was easy!'
+    };
 
     const owner = await user.findOne({"_id":id})
 
@@ -46,7 +66,16 @@ router.route('/createProject/:id').post(async (req,res)=>{
                 var projId = await proj._id.valueOf()
                 ownerProjects.push(projId)
                 user.findOneAndUpdate({"_id":id},{projects:ownerProjects} )
-                    .then(()=>res.json({status:1,msg:"project created",data:proj}))
+                    .then(()=>{
+                        transporter.sendMail(mailOptions, (err,info)=>{
+                            if(err){
+                                console.log(err);
+                            }else{
+                                console.log('sent!')
+                            }
+                            res.json({status:1,msg:"project created",data:proj})
+                        })
+                    })
                     .catch(()=>res.status(400).json({status:0,msg:"profile didn't updated"}))
             })
             .catch((err)=>{res.status(400).json({status:0,msg:err})})

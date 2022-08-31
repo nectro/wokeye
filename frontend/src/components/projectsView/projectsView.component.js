@@ -52,7 +52,10 @@ function ProjectsViewComponent() {
 
         const data = {
             projectName:projName,
+            members
         }
+
+        console.log(data)
 
         axios.post(`${API_URI}project/createProject/${userId}`, data)
             .then((res)=>{
