@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 3rem;
+    margin-top: 4rem;
+    text-align: center;
+}
+
+
+
+
+.wokeye {
+    font-weight: 100;
+    color: grey;
+    letter-spacing: 1.5px;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+
+
+b {
+    margin: auto;
+    color: black;
+}
+
+h1 {
+    color: lightgreen;
+    font-size: 5rem;
+    font-weight: bolder;
+    background-color: lightskyblue;
+    padding: 3rem 0rem;
+}
+
+h2 {
+    color: black;
+    font-size: 4rem;
+    font-weight: 400;
+    margin-bottom: 5rem;
+    margin-top: 14rem;
+}
+
+p {
+    font-size: 1.5rem;
+    text-align: justify;
+    width: 100%;
+    /* line-height: 5rem; */
+    /* margin-bottom: 5rem; */
+}
+
+.btn {
+    display: inline-block;
+    padding: 1.7rem 5.5rem;
+    background: lightgreen;
+    font-size: 2rem;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background 0.5s;
+    margin-bottom: 12rem;
+}
+
+.btn:hover{
+    background: #dadada;
+}
